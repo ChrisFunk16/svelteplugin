@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<!--
+	Svelte autocomplete file for Notepad++
+	Place this file in: %APPDATA%\Notepad++\plugins\APIs\Svelte.xml
+	(or %ProgramFiles%\Notepad++\autoCompletion\Svelte.xml)
+-->
+<NotepadPlus>
+	<AutoComplete language="Svelte">
+		<Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" additionalWordChar="$#:@/" />
+
+		<!-- Svelte 5 Runes -->
+		<KeyWord name="$state" func="yes">
+			<Overload retVal="T" descr="Reactive state rune (Svelte 5)">
+				<Param name="initial: T" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$state.raw" func="yes">
+			<Overload retVal="T" descr="Non-reactive deep state">
+				<Param name="initial: T" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$state.snapshot" func="yes">
+			<Overload retVal="T" descr="Snapshot of reactive state">
+				<Param name="value: T" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$derived" func="yes">
+			<Overload retVal="T" descr="Computed reactive value">
+				<Param name="expression: T" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$derived.by" func="yes">
+			<Overload retVal="T" descr="Derived value from function">
+				<Param name="fn: () => T" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$effect" func="yes">
+			<Overload retVal="void" descr="Run side effects when dependencies change">
+				<Param name="fn: () => void | (() => void)" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$effect.pre" func="yes">
+			<Overload retVal="void" descr="Effect that runs before DOM updates">
+				<Param name="fn: () => void" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$effect.tracking" func="yes">
+			<Overload retVal="boolean" descr="True if inside a tracking context" />
+		</KeyWord>
+		<KeyWord name="$effect.root" func="yes">
+			<Overload retVal="() => void" descr="Create non-tracked effect root">
+				<Param name="fn: () => void" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$props" func="yes">
+			<Overload retVal="Props" descr="Component props (Svelte 5)" />
+		</KeyWord>
+		<KeyWord name="$bindable" func="yes">
+			<Overload retVal="T" descr="Mark prop as bindable">
+				<Param name="fallback?: T" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$inspect" func="yes">
+			<Overload retVal="void" descr="Debug reactive values">
+				<Param name="...values: any[]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="$host" func="yes">
+			<Overload retVal="HTMLElement" descr="Custom element host" />
+		</KeyWord>
+
+		<!-- Block syntax -->
+		<KeyWord name="#if" />
+		<KeyWord name="#each" />
+		<KeyWord name="#await" />
+		<KeyWord name="#key" />
+		<KeyWord name="#snippet" />
+		<KeyWord name=":else" />
+		<KeyWord name=":then" />
+		<KeyWord name=":catch" />
+		<KeyWord name="/if" />
+		<KeyWord name="/each" />
+		<KeyWord name="/await" />
+		<KeyWord name="/key" />
+		<KeyWord name="/snippet" />
+		<KeyWord name="@render" />
+		<KeyWord name="@html" />
+		<KeyWord name="@const" />
+		<KeyWord name="@debug" />
+		<KeyWord name="@attach" />
+
+		<!-- Directives -->
+		<KeyWord name="bind:value" />
+		<KeyWord name="bind:checked" />
+		<KeyWord name="bind:group" />
+		<KeyWord name="bind:files" />
+		<KeyWord name="bind:this" />
+		<KeyWord name="bind:innerHTML" />
+		<KeyWord name="bind:innerText" />
+		<KeyWord name="bind:open" />
+		<KeyWord name="on:click" />
+		<KeyWord name="on:change" />
+		<KeyWord name="on:input" />
+		<KeyWord name="on:submit" />
+		<KeyWord name="on:keydown" />
+		<KeyWord name="on:keyup" />
+		<KeyWord name="onclick" />
+		<KeyWord name="onchange" />
+		<KeyWord name="oninput" />
+		<KeyWord name="onsubmit" />
+		<KeyWord name="onkeydown" />
+		<KeyWord name="onkeyup" />
+		<KeyWord name="use:" />
+		<KeyWord name="transition:" />
+		<KeyWord name="in:" />
+		<KeyWord name="out:" />
+		<KeyWord name="animate:" />
+		<KeyWord name="class:" />
+		<KeyWord name="style:" />
+
+		<!-- JS Keywords -->
+		<KeyWord name="const" />
+		<KeyWord name="let" />
+		<KeyWord name="var" />
+		<KeyWord name="function" />
+		<KeyWord name="return" />
+		<KeyWord name="import" />
+		<KeyWord name="export" />
+		<KeyWord name="from" />
+		<KeyWord name="async" />
+		<KeyWord name="await" />
+		<KeyWord name="if" />
+		<KeyWord name="else" />
+		<KeyWord name="for" />
+		<KeyWord name="while" />
+		<KeyWord name="switch" />
+		<KeyWord name="case" />
+		<KeyWord name="break" />
+		<KeyWord name="continue" />
+		<KeyWord name="class" />
+		<KeyWord name="extends" />
+		<KeyWord name="new" />
+		<KeyWord name="this" />
+		<KeyWord name="typeof" />
+		<KeyWord name="instanceof" />
+		<KeyWord name="null" />
+		<KeyWord name="undefined" />
+		<KeyWord name="true" />
+		<KeyWord name="false" />
+		<KeyWord name="try" />
+		<KeyWord name="catch" />
+		<KeyWord name="finally" />
+		<KeyWord name="throw" />
+	</AutoComplete>
+</NotepadPlus>
