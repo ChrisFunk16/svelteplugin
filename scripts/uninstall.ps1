@@ -1,4 +1,4 @@
-#Requires -Version 5.0
+﻿#Requires -Version 5.0
 <#
 .SYNOPSIS
     Removes Svelte language support from Notepad++
@@ -6,11 +6,12 @@
 
 $ErrorActionPreference = 'Stop'
 
-Write-Host "🗑️  Svelte Notepad++ Uninstaller" -ForegroundColor Cyan
+Write-Host "Svelte Notepad++ Uninstaller" -ForegroundColor Cyan
+Write-Host "============================" -ForegroundColor Cyan
 
 $NppProc = Get-Process -Name 'notepad++' -ErrorAction SilentlyContinue
 if ($NppProc) {
-    Write-Host "⚠️  Closing Notepad++..." -ForegroundColor Yellow
+    Write-Host "Closing Notepad++..." -ForegroundColor Yellow
     $NppProc | Stop-Process
     Start-Sleep -Seconds 1
 }
@@ -25,14 +26,18 @@ $Targets = @(
 $Removed = 0
 foreach ($t in $Targets) {
     if (Test-Path $t) {
-        Remove-Item -Path $t -Force
-        Write-Host "✅ Removed: $t" -ForegroundColor Green
-        $Removed++
+        try {
+            Remove-Item -Path $t -Force
+            Write-Host "[OK] Removed: $t" -ForegroundColor Green
+            $Removed++
+        } catch {
+            Write-Warning "Could not remove $t : $($_.Exception.Message)"
+        }
     }
 }
 
 if ($Removed -eq 0) {
-    Write-Host "ℹ️  Nothing to remove." -ForegroundColor Gray
+    Write-Host "Nothing to remove." -ForegroundColor Gray
 } else {
-    Write-Host "🎉 Done. $Removed file(s) removed." -ForegroundColor Green
+    Write-Host "Done. $Removed file(s) removed." -ForegroundColor Green
 }
